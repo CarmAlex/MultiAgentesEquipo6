@@ -1,41 +1,54 @@
 using UnityEngine;
 
-public enum LightColor { Red, Green }
-
 public class TrafficLightController : MonoBehaviour
 {
-    public LightColor currentColor = LightColor.Red;
+    public TrafficLight northLight;
+    public TrafficLight southLight;
+    public TrafficLight eastLight;
+    public TrafficLight westLight;
+
     public float greenTime = 6f;
+    public float yellowTime = 2f;
     public float redTime = 6f;
 
-    private float timer = 0f;
-
-    // Optional grouping ID for coordination
-    public string groupId = "default";
+    float timer;
+    int phase = 0;
 
     void Update()
     {
         timer += Time.deltaTime;
 
-        if (currentColor == LightColor.Green && timer >= greenTime)
+        switch (phase)
         {
-            SwitchToRed();
-        }
-        else if (currentColor == LightColor.Red && timer >= redTime)
-        {
-            SwitchToGreen();
+            // North-South green
+            case 0:
+                if (timer >= greenTime) { SetNorthSouth(LightState.Yellow); phase = 1; timer = 0; }
+                break;
+
+            case 1:
+                if (timer >= yellowTime) { SetNorthSouth(LightState.Red); SetEastWest(LightState.Green); phase = 2; timer = 0; }
+                break;
+
+            // East-West green
+            case 2:
+                if (timer >= greenTime) { SetEastWest(LightState.Yellow); phase = 3; timer = 0; }
+                break;
+
+            case 3:
+                if (timer >= yellowTime) { SetEastWest(LightState.Red); SetNorthSouth(LightState.Green); phase = 0; timer = 0; }
+                break;
         }
     }
 
-    public void SwitchToRed()
+    void SetNorthSouth(LightState s)
     {
-        currentColor = LightColor.Red;
-        timer = 0f;
+        northLight.state = s;
+        southLight.state = s;
     }
 
-    public void SwitchToGreen()
+    void SetEastWest(LightState s)
     {
-        currentColor = LightColor.Green;
-        timer = 0f;
+        eastLight.state = s;
+        westLight.state = s;
     }
 }
