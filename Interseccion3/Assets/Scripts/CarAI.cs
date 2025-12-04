@@ -3,7 +3,7 @@ using UnityEngine;
 public class CarAI : MonoBehaviour
 {
     public Path path;
-    public CarSpawner spawner;
+    public VehicleSpawner spawner;
     public float speed = 10f;
     public float turnSpeed = 8f;
     public float waypointThreshold = 0.3f;
@@ -98,8 +98,9 @@ public class CarAI : MonoBehaviour
             IntersectionManager.Instance.Release(path.conflictZoneId);
 
         if (spawner)
-            spawner.Despawn(this);
+            spawner.Despawn(gameObject);
         else
             Destroy(gameObject);
     }
+
 }

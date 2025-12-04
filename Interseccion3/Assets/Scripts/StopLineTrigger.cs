@@ -6,6 +6,7 @@ public class StopLineTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("STOP LINE ENTERED by " + other.name);
         CarAI ai = other.GetComponent<CarAI>();
         if (!ai) return;
 
