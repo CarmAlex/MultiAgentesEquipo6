@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638987681708147837
-    m_Hash: 1075809736
+      ticks: 639004114324778842
+    m_Hash: 1334904738
   m_LockFileStatus:
     m_FilePath: C:/Users/carme/OneDrive/Documentos/GitHub/MultiAgentesEquipo6/Interseccion3/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638987681708223062
-    m_Hash: 2754572626
+      ticks: 639004114324808752
+    m_Hash: 4119994887
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -366,6 +366,7 @@ m_ResolvedPackages:
     - 6.0.5
     - 6.0.6
     - 6.0.7
+    - 6.0.8
     compatible:
     - 5.2.3
     - 5.2.4
