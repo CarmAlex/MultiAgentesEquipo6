@@ -36,7 +36,7 @@ public class VehicleSpawner : MonoBehaviour
 
         aliveVehicles.Add(obj);
 
-        // ✨ VERY IMPORTANT ✨
+        // VERY IMPORTANT
         CarAI ai = obj.GetComponent<CarAI>();
         ai.path = path;
         ai.spawner = this;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StopLineTrigger : MonoBehaviour
 {
-    public TrafficLight assignedLight;   // drag your light here
+    public TrafficLight assignedLight;
 
     void OnTriggerEnter(Collider other)
     {

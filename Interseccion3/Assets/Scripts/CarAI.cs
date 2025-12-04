@@ -33,7 +33,6 @@ public class CarAI : MonoBehaviour
             else
             {
                 waiting = false;
-                // Do NOT clear trafficLight here – StopLineTrigger will do that on exit.
             }
         }
 

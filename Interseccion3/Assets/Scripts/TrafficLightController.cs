@@ -20,7 +20,7 @@ public class TrafficLightController : MonoBehaviour
 
         switch (phase)
         {
-            // North-South green
+            
             case 0:
                 if (timer >= greenTime) { SetNorthSouth(LightState.Yellow); phase = 1; timer = 0; }
                 break;
@@ -29,7 +29,7 @@ public class TrafficLightController : MonoBehaviour
                 if (timer >= yellowTime) { SetNorthSouth(LightState.Red); SetEastWest(LightState.Green); phase = 2; timer = 0; }
                 break;
 
-            // East-West green
+            
             case 2:
                 if (timer >= greenTime) { SetEastWest(LightState.Yellow); phase = 3; timer = 0; }
                 break;
